@@ -1,6 +1,7 @@
 {
 	"name": "cf-ai-app",
-	"version": "0.0.0",
+	"version": "1.0.0",
+	"description": "AI chat application with voice input powered by Cloudflare Workers AI",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AI Chat - Powered by Cloudflare Workers AI</title>
+	<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div>
+				<h1>🤖 AI Chat Assistant</h1>
+				<div class="info">Powered by Llama 3.3 on Cloudflare Workers AI</div>
+			</div>
+			<button class="clear-btn" id="clearBtn">Clear Chat</button>
+		</div>
+		
+		<div class="messages" id="messages">
+			<div class="welcome-message">
+				<h2>Welcome! 👋</h2>
+				<p>Ask me anything by typing or using voice input</p>
+				<p class="tech-info">Powered by Cloudflare Workers AI</p>
+			</div>
+		</div>
+		
+		<div class="connection-status" id="connectionStatus">
+			<span class="status-dot"></span>
+			<span id="statusText">Connecting...</span>
+		</div>
+		
+		<div class="input-area">
+			<div class="input-wrapper">
+				<div class="voice-status" id="voiceStatus">🎤 Recording...</div>
+				<input 
+					type="text" 
+					id="messageInput" 
+					placeholder="Type or speak your message..." 
+					autocomplete="off"
+				>
+				<button class="voice-btn" id="voiceBtn" title="Voice input">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+						<path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+						<line x1="12" y1="19" x2="12" y2="23"></line>
+						<line x1="8" y1="23" x2="16" y2="23"></line>
+					</svg>
+				</button>
+			</div>
+			<button class="send-btn" id="sendBtn">Send</button>
+		</div>
+	</div>
+
+	<script src="/app.js"></script>
+</body>
+</html>
+
