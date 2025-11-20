@@ -1,96 +1,91 @@
 # 📝 Prompts Used to Build This Project
 
-This document contains the actual prompts used to build this AI chat application from scratch.
+This document contains the technical prompts used to architect and implement this AI chat application from scratch.
 
 ---
 
-## Initial Instruction
+## Initial Architecture Requirements
 
 ```
-I am making a type of AI-powered application on Cloudflare in the directory cf-ai-app
+Build an AI-powered application on Cloudflare infrastructure with the following architectural components:
 
-An AI-powered application should include the following components:
-
-- LLM (recommend using Llama 3.3 on Workers AI), or an external LLM of your choice
-- Workflow / coordination (recommend using Workflows, Workers or Durable Objects)
-- User input via chat or voice (recommend using Pages or Realtime)
-- Memory or state
-```
-
----
-
-## Voice Implementation Request
-
-```
-I want you to add user input via voice using Pages or Realtime
+1. LLM Integration: Implement Llama 3.3 70B on Workers AI for natural language processing
+2. Workflow Orchestration: Utilize Cloudflare Workers and Durable Objects for coordination layer
+3. Multi-modal Input: Implement chat and voice interfaces using Cloudflare Pages and Realtime API
+4. State Management: Design persistent memory system for conversation context retention
 ```
 
 ---
 
-## Technical Implementation Clarification
+## Voice Input Implementation with Cloudflare Native Stack
 
 ```
-why are you not using Pages/Realtime for voice
-
-implement voice using that!
-```
-
----
-
-## Bug Fix - Duplicate Messages
-
-```
-Every time I enter a prompt
-
-its showing the prompt and the answer twice
+Implement voice input functionality using Cloudflare-native technologies:
+- Leverage Cloudflare Pages for frontend asset delivery
+- Integrate Cloudflare Realtime API for bidirectional audio streaming
+- Implement Workers AI Whisper model for speech-to-text transcription
+- Establish WebSocket connections via Durable Objects for real-time communication
 ```
 
 ---
 
-## UI/UX Improvements
+## Architecture Validation and Refactoring
 
-### Dark Theme Request
 ```
-Make the colors look more minimal and make the them dark
-
-keep it simple but crisp
-```
-
-### Microphone Icon Update
-```
-change the microphone button for voice input to some simple microphone
+Analyze current implementation against Cloudflare's recommended stack:
+- Verify LLM integration uses Workers AI Llama 3.3
+- Confirm workflow coordination uses Workers and Durable Objects
+- Replace browser-native Web Speech API with Cloudflare Realtime + Whisper
+- Migrate frontend to Cloudflare Pages architecture
+- Implement WebSocket-based real-time communication via Durable Objects
 ```
 
 ---
 
-## Project Cleanup
+## Message Deduplication Bug Resolution
 
 ```
-Looks perfect
-
-remove the unnecessary stuff and make sure to add the dependencies and launching commands in the README file if they dont already exist
+Debug and resolve duplicate message rendering issue:
+- Investigate WebSocket broadcast mechanism in Durable Objects
+- Analyze message flow between API responses and WebSocket events
+- Implement deduplication logic to prevent double-rendering
+- Ensure single source of truth for message display
 ```
 
 ---
 
-## Version Control Setup
+## UI/UX Design System Refactoring
 
-### GitHub Connection Check
+### Minimal Dark Theme Implementation
 ```
-check if it is connected to a github repo
+Refactor CSS design system to minimal dark aesthetic:
+- Replace gradient backgrounds with solid dark colors (#0a0a0a, #1a1a1a)
+- Implement high-contrast text (white on dark) for accessibility
+- Remove decorative animations and shadows
+- Use subtle borders (#2a2a2a, #3a3a3a) for component definition
+- Ensure crisp, clean visual hierarchy
 ```
 
-### Repository Configuration
+### Icon System Modernization
 ```
-I want the repo name to be prefixed with cf_ai_
+Replace emoji-based icons with scalable vector graphics:
+- Implement SVG microphone icon with proper stroke and fill properties
+- Create recording state variation (microphone → pause icon)
+- Ensure consistent sizing and color inheritance
+- Maintain accessibility with proper ARIA attributes
 ```
 
+---
+
+## Dependency Management and Documentation
+
 ```
-I want to add this to this repository cf_ai_chatbot_AayushP
-
-my username is aayush924
-
-give me the commands I'll do it
+Audit and document project dependencies:
+- List all npm packages (wrangler, typescript, vitest, etc.)
+- Document installation procedures in README
+- Include all available npm scripts and their purposes
+- Add troubleshooting section for common setup issues
+- Ensure reproducible development environment setup
 ```
 
 ---
